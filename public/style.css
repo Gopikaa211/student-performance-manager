@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.login-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+}
+
+button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 8px;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #555;
+}
