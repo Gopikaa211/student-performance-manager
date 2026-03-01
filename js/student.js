@@ -5,7 +5,9 @@ import {
   getDocs,
   doc,
   updateDoc,
-  deleteDoc
+  deleteDoc,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const addBtn = document.getElementById("addStudentBtn");
@@ -43,17 +45,38 @@ function clearForm() {
 async function loadStudents() {
   studentList.innerHTML = "";
 
-  const querySnapshot = await getDocs(collection(db, "students"));
+  const studentsSnapshot = await getDocs(collection(db, "students"));
 
-  querySnapshot.forEach((document) => {
-    const data = document.data();
+  studentsSnapshot.forEach(async (studentDoc) => {
+    const data = studentDoc.data();
+
+    const attendanceQuery = query(
+      collection(db, "attendance"),
+      where("studentId", "==", studentDoc.id)
+    );
+
+    const attendanceSnapshot = await getDocs(attendanceQuery);
+
+    let total = 0;
+    let present = 0;
+
+    attendanceSnapshot.forEach((doc) => {
+      total++;
+      if (doc.data().status === "Present") {
+        present++;
+      }
+    });
+
+    const percentage = total > 0 
+      ? ((present / total) * 100).toFixed(1)
+      : 0;
 
     studentList.innerHTML += `
       <div>
         <p>
           ${data.name} - ${data.regNo} - Sem ${data.semester}
-          <button onclick="editStudent('${document.id}', '${data.name}', '${data.regNo}', '${data.department}', ${data.semester})">Edit</button>
-          <button onclick="deleteStudent('${document.id}')">Delete</button>
+          <br>
+          Attendance: ${percentage}%
         </p>
       </div>
     `;
