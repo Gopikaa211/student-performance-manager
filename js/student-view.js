@@ -48,24 +48,39 @@ onAuthStateChanged(auth, async (user) => {
     ? ((present / total) * 100).toFixed(1)
     : 0;
 
-  attendanceInfo.innerHTML = `
-    <h3>Attendance</h3>
-    <p>${percentage}%</p>
-  `;
+  let attendanceMessage = "";
+
+if (percentage < 75) {
+  attendanceMessage = "<p style='color:red;'>Warning: Attendance below 75%</p>";
+}
+
+attendanceInfo.innerHTML = `
+  <h3>Attendance</h3>
+  <p>${percentage}%</p>
+  ${attendanceMessage}
+`;
 
   // Load results
-  const resultDoc = await getDoc(doc(db, "results", uid));
-  if (resultDoc.exists()) {
-    const result = resultDoc.data();
+const resultDoc = await getDoc(doc(db, "results", uid));
 
-   resultInfo.innerHTML = `
-  <h3>Results</h3>
-  <p>CIA 1 (10): ${result.cia1}</p>
-  <p>CIA 2 (10): ${result.cia2}</p>
-  <p>Midsem (30): ${result.midsem}</p>
-  <p>CIA Total (40): ${result.ciaTotal}</p>
-  <p>Exam (60): ${result.exam}</p>
-  <p><strong>Final Total (100): ${result.finalTotal}</strong></p>
-`;
+if (resultDoc.exists()) {
+  const result = resultDoc.data();
+
+  let performanceMessage = "";
+
+  if (result.finalTotal < 40) {
+    performanceMessage = "<p style='color:red;'>Warning: Low overall performance</p>";
   }
+
+  resultInfo.innerHTML = `
+    <h3>Results</h3>
+    <p>CIA 1 (10): ${result.cia1}</p>
+    <p>CIA 2 (10): ${result.cia2}</p>
+    <p>Midsem (30): ${result.midsem}</p>
+    <p>CIA Total (40): ${result.ciaTotal}</p>
+    <p>Exam (60): ${result.exam}</p>
+    <p><strong>Final Total (100): ${result.finalTotal}</strong></p>
+    ${performanceMessage}
+  `;
+}
 });
