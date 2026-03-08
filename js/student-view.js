@@ -22,9 +22,9 @@ onAuthStateChanged(auth, async (user) => {
   if (studentDoc.exists()) {
     const data = studentDoc.data();
     studentInfo.innerHTML = `
-      <h3>${data.name}</h3>
-      <p>Register No: ${data.regNo}</p>
-      <p>Semester: ${data.semester}</p>
+    <p>Name: ${data.name}</p>
+    <p>Register No: ${data.regNo}</p>
+    <p>Semester: ${data.semester}</p>
     `;
   }
 
@@ -55,9 +55,9 @@ if (percentage < 75) {
 }
 
 attendanceInfo.innerHTML = `
-  <h3>Attendance</h3>
-  <p>${percentage}%</p>
-  ${attendanceMessage}
+<p><strong>Attendance:</strong></p>
+<p class="stat-value">${percentage}%</p>
+${attendanceMessage}
 `;
 
   // Load results
@@ -73,14 +73,12 @@ if (resultDoc.exists()) {
   }
 
   resultInfo.innerHTML = `
-    <h3>Results</h3>
-    <p>CIA 1 (10): ${result.cia1}</p>
-    <p>CIA 2 (10): ${result.cia2}</p>
-    <p>Midsem (30): ${result.midsem}</p>
-    <p>CIA Total (40): ${result.ciaTotal}</p>
-    <p>Exam (60): ${result.exam}</p>
-    <p><strong>Final Total (100): ${result.finalTotal}</strong></p>
-    ${performanceMessage}
+  <p>Activity 1: ${result.cia1}</p>
+  <p>Activity 2: ${result.cia2}</p>
+  <p>Mid semester: ${result.midsem}</p>
+  <p>End Semester: ${result.exam}</p>
+  <p class="stat-value">Final: ${result.finalTotal}</p>
+  ${performanceMessage}
   `;
 }
 });

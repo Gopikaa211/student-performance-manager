@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Teacher Dashboard</title>
+  <title>Attendance</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,18 +30,32 @@
 
 <div class="container">
 
-<h2>Dashboard</h2>
+<h2>Mark Attendance</h2>
 
-<div id="dashboardSummary"></div>
+<input type="date" id="attendanceDate">
 
+<table class="student-table">
+<thead>
+<tr>
+<th>Student Name</th>
+<th>Present</th>
+</tr>
+</thead>
+
+<tbody id="attendanceList"></tbody>
+
+</table>
+
+<button id="saveAttendanceBtn">Save Attendance</button>
 </div>
 
 </div>
 
 </div>
 
-<script type="module" src="../js/dashboard.js"></script>
+<script type="module" src="../js/attendance.js"></script>
 <script type="module" src="../js/logout.js"></script>
+
 <script>
 const links = document.querySelectorAll(".sidebar a");
 

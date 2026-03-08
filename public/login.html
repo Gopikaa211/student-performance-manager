@@ -5,22 +5,31 @@
 <title>Login | Student Performance Manager</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<div class="login-container">
-<h2>Login</h2>
+<body class="login-body">
 
-<label>Email</label>
-<input type="email" placeholder="Enter email">
+<div class="login-wrapper">
 
-<label>Password</label>
-<input type="password" placeholder="Enter password">
+<h1>Student Performance Manager</h1>
 
-<button>Login</button>
+<div class="login-card">
 
-<p class="note">Authorized users only</p>
+<h3>Login</h3>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button id="loginBtn">Login</button>
+
+<p id="message"></p>
+
 </div>
+
+</div>
+
 <script type="module" src="../js/auth.js"></script>
+
 </body>
 </html>
 

@@ -19,10 +19,10 @@ async function loadResultsEntry() {
     resultsList.innerHTML += `
       <div>
         <p>${data.name}</p>
-        CIA1: <input type="number" id="cia1-${studentDoc.id}" max="10">
-        CIA2: <input type="number" id="cia2-${studentDoc.id}" max="10">
-        Midsem(30): <input type="number" id="midsem-${studentDoc.id}" max="30">
-        Exam (60): <input type="number" id="exam-${studentDoc.id}" max="60">
+        Activity1: <input class="results-input" type="number" id="cia1-${studentDoc.id}" max="10">
+        Activity 2: <input class="results-input" type="number" id="cia2-${studentDoc.id}" max="10">
+        Mid semester(30): <input class="results-input" type="number" id="midsem-${studentDoc.id}" max="30">
+        End semester (60): <input class="results-input" type="number" id="exam-${studentDoc.id}" max="60">
         <button onclick="saveResult('${studentDoc.id}')">Save</button>
       </div>
     `;

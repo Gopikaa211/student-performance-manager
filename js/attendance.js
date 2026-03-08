@@ -17,14 +17,15 @@ async function loadAttendanceStudents() {
     const data = docSnap.data();
 
     attendanceList.innerHTML += `
-      <div>
-        <span>${data.name}</span>
-        <select id="status-${docSnap.id}">
-          <option value="Present">Present</option>
-          <option value="Absent">Absent</option>
-        </select>
-      </div>
-    `;
+    <tr>
+    <td>${data.name}</td>
+
+    <td>
+    <input type="checkbox" id="status-${docSnap.id}">
+    </td>
+
+    </tr>
+  `;
   });
 }
 
@@ -39,7 +40,10 @@ saveAttendanceBtn.addEventListener("click", async () => {
   const studentsSnapshot = await getDocs(collection(db, "students"));
 
   for (const docSnap of studentsSnapshot.docs) {
-    const status = document.getElementById(`status-${docSnap.id}`).value;
+    const isPresent =
+    document.getElementById(`status-${docSnap.id}`).checked;
+
+    const status = isPresent ? "Present" : "Absent";
 
     await addDoc(collection(db, "attendance"), {
       studentId: docSnap.id,

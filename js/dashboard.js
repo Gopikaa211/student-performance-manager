@@ -59,11 +59,30 @@ async function loadDashboardSummary() {
   });
 
   dashboardSummary.innerHTML = `
-    <p>Total Students: ${totalStudents}</p>
-    <p>Class Average: ${classAverage}</p>
-    <p>Low Performance Students: ${lowPerformance}</p>
-    <p>Low Attendance Students: ${lowAttendance}</p>
-  `;
+<div class="dashboard-grid">
+
+<div class="dashboard-card">
+<h4>Total Students</h4>
+<p>${totalStudents}</p>
+</div>
+
+<div class="dashboard-card">
+<h4>Class Average</h4>
+<p>${classAverage}</p>
+</div>
+
+<div class="dashboard-card">
+<h4>Low Attendance</h4>
+<p>${lowAttendance}</p>
+</div>
+
+<div class="dashboard-card">
+<h4>Low Performance</h4>
+<p>${lowPerformance}</p>
+</div>
+
+</div>
+`;
 }
 document.addEventListener("DOMContentLoaded", () => {
   loadDashboardSummary();

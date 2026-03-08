@@ -9,13 +9,11 @@ import {
   query,
   where
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-import "./attendance.js";
-import "./results.js";
-import "./dashboard.js";
 
 const addBtn = document.getElementById("addStudentBtn");
 const studentList = document.getElementById("studentList");
 
+if (addBtn) {
 addBtn.addEventListener("click", async () => {
   const name = document.getElementById("name").value;
   const regNo = document.getElementById("regNo").value;
@@ -37,6 +35,7 @@ addBtn.addEventListener("click", async () => {
   clearForm();
   loadStudents();
 });
+}
 
 function clearForm() {
   document.getElementById("name").value = "";
@@ -75,15 +74,19 @@ async function loadStudents() {
       : 0;
 
     studentList.innerHTML += `
-      <div>
-        <p>
-          ${data.name} - ${data.regNo} - Sem ${data.semester}
-          <br>
-          Attendance: ${percentage}%
-        </p>
-        <button onclick="editStudent('${studentDoc.id}', '${data.name}', '${data.regNo}', '${data.department}', ${data.semester})">Edit</button>
-        <button onclick="deleteStudent('${studentDoc.id}')">Delete</button>
-      </div>
+    <tr>
+    <td>${data.name}</td>
+    <td>${data.regNo}</td>
+    <td>${data.semester}</td>
+    <td>${percentage}%</td>
+
+    <td>
+    <button onclick="editStudent('${studentDoc.id}','${data.name}','${data.regNo}','${data.department}',${data.semester})">Edit</button>
+
+    <button onclick="deleteStudent('${studentDoc.id}')">Delete</button>
+    </td>
+
+    </tr>
     `;
   });
 }
@@ -107,4 +110,6 @@ window.deleteStudent = async (id) => {
   loadStudents();
 };
 
-loadStudents();
+if (studentList) {
+  loadStudents();
+}
