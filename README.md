@@ -19,11 +19,11 @@ Student Performance Manager is a web-based system developed using HTML, CSS, Jav
 The project follows an **incremental development approach**, where features are developed and tested one module at a time. This makes the system easier to build, understand, and extend in future phases.
 
 ## Future Enhancements
-Subject-wise marks
-Role-based admin control
-Export results PDF
-Email notifications
-Mobile responsive UI
+Subject-wise marks, 
+Role-based admin control, 
+Export results PDF, 
+Email notifications, 
+Mobile responsive UI.
 
 ## Documentation
 
