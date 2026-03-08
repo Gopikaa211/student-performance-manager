@@ -25,6 +25,7 @@ onAuthStateChanged(auth, async (user) => {
     <p>Name: ${data.name}</p>
     <p>Register No: ${data.regNo}</p>
     <p>Semester: ${data.semester}</p>
+    <p>Department: ${data.department}</p>
     `;
   }
 
