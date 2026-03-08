@@ -25,12 +25,9 @@ Export results PDF
 Email notifications
 Mobile responsive UI
 
-## Future Enhancements
-- Detailed performance analytics
-- Attendance alerts
-- Report generation
-- Improved user interface
+## Documentation
 
----
+Project documentation can be downloaded here:
+[Download Documentation](docs/spm-documentation.pdf)
 
 This project is developed as part of a software engineering assignment.
