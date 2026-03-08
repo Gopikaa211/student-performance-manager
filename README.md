@@ -30,4 +30,7 @@ Mobile responsive UI.
 Project documentation can be downloaded here:
 [Download Documentation](docs/spm-documentation.pdf)
 
+## Live Application
+https://student-performance-manager.vercel.app
+
 This project is developed as part of a software engineering assignment.
