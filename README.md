@@ -33,6 +33,6 @@ Project documentation can be downloaded here:
 ## Live Application
 https://student-performance-manager.vercel.app
 
-##Demo Credentials are available on request
+## Demo Credentials are available on request
 
 This project is developed as part of a software engineering assignment.
